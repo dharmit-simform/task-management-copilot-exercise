@@ -256,7 +256,8 @@ const options: swaggerJsdoc.Options = {
               type: "string",
               format: "date",
               pattern: "^\\d{4}-\\d{2}-\\d{2}$",
-              description: "Task due date in YYYY-MM-DD format (optional). Must not be less than today's date.",
+              description:
+                "Task due date in YYYY-MM-DD format (optional). Must not be less than today's date.",
               example: "2026-03-15",
             },
           },
@@ -302,7 +303,8 @@ const options: swaggerJsdoc.Options = {
               type: "string",
               format: "date",
               pattern: "^\\d{4}-\\d{2}-\\d{2}$",
-              description: "Task due date in YYYY-MM-DD format (optional). Must not be less than today's date.",
+              description:
+                "Task due date in YYYY-MM-DD format (optional). Must not be less than today's date.",
               example: "2026-03-15",
             },
           },

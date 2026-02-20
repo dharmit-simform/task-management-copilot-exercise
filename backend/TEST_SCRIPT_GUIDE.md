@@ -7,16 +7,18 @@ The `test-api.sh` script is a comprehensive test suite that validates all API en
 ## Prerequisites
 
 1. **Server must be running**
+
    ```bash
    cd backend
    npm run dev
    ```
 
 2. **Optional: Install jq for formatted JSON output**
+
    ```bash
    # macOS
    brew install jq
-   
+
    # Ubuntu/Debian
    sudo apt-get install jq
    ```
@@ -31,9 +33,11 @@ The `test-api.sh` script is a comprehensive test suite that validates all API en
 ## What the Script Tests
 
 ### 1. Health Check
+
 - ✓ Server availability check
 
 ### 2. Authentication - Signup
+
 - ✓ Create new user (User 1)
 - ✓ Create second user (User 2)
 - ✓ Reject duplicate email
@@ -42,11 +46,13 @@ The `test-api.sh` script is a comprehensive test suite that validates all API en
 - ✓ Reject missing required fields
 
 ### 3. Authentication - Login
+
 - ✓ Valid credentials
 - ✓ Reject wrong password
 - ✓ Reject non-existent user
 
 ### 4. Task Creation
+
 - ✓ Reject unauthorized requests
 - ✓ Create minimal task (title only)
 - ✓ Create complete task with all fields
@@ -59,6 +65,7 @@ The `test-api.sh` script is a comprehensive test suite that validates all API en
 - ✓ Create task for User 2
 
 ### 5. Get All Tasks
+
 - ✓ Get all tasks for authenticated user
 - ✓ Pagination (page & limit)
 - ✓ Filter by status
@@ -68,11 +75,13 @@ The `test-api.sh` script is a comprehensive test suite that validates all API en
 - ✓ Combined filters
 
 ### 6. Get Task by ID
+
 - ✓ Get task by valid ID
 - ✓ Return 404 for non-existent task
 - ✓ Reject invalid UUID format
 
 ### 7. Update Task
+
 - ✓ Update task title
 - ✓ Update multiple fields
 - ✓ Update due date
@@ -82,11 +91,13 @@ The `test-api.sh` script is a comprehensive test suite that validates all API en
 - ✓ Reject invalid status
 
 ### 8. Authorization (Cross-User Access)
+
 - ✓ Deny access to another user's task
 - ✓ Deny update of another user's task
 - ✓ Deny delete of another user's task
 
 ### 9. Delete Task
+
 - ✓ Delete valid task
 - ✓ Return 404 when deleting already deleted task
 - ✓ Return 404 for non-existent task
@@ -94,6 +105,7 @@ The `test-api.sh` script is a comprehensive test suite that validates all API en
 ## Understanding the Output
 
 The script uses color-coded output:
+
 - 🟢 **GREEN** - Test passed
 - 🔴 **RED** - Test failed
 - 🟡 **YELLOW** - Test description
@@ -136,25 +148,32 @@ Failed: 0
 ## Troubleshooting
 
 ### Server Not Running
+
 ```
 Server is not responding. Please start the server first.
 Run: cd backend && npm run dev
 ```
+
 **Solution:** Start the backend server before running tests.
 
 ### Port Already in Use
+
 If port 5000 is already in use, update the `BASE_URL` variable in the script:
+
 ```bash
 BASE_URL="http://localhost:YOUR_PORT"
 ```
 
 ### jq Not Found
+
 The script works without `jq`, but JSON responses won't be formatted. Install it for better readability:
+
 ```bash
 brew install jq
 ```
 
 ### Test Failures
+
 - Check that the server is running correctly
 - Verify that all recent code changes are included
 - Check the response body for error messages
@@ -163,6 +182,7 @@ brew install jq
 ## Customizing Tests
 
 You can modify the script to:
+
 - Add more test cases
 - Change test data
 - Adjust expected HTTP status codes
@@ -178,6 +198,7 @@ You can modify the script to:
 ## Manual Testing
 
 If you prefer manual testing, refer to:
+
 - [AUTH_TESTING_GUIDE.md](AUTH_TESTING_GUIDE.md) - Authentication endpoints
 - [TESTING_GUIDE.md](TESTING_GUIDE.md) - Task management endpoints
 - http://localhost:5000/api-docs - Interactive Swagger documentation
